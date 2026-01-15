@@ -12,6 +12,6 @@ public class KafkaProducerConfig {
     public KafkaTemplate<String, OrderEvent> kafkaTemplate(
             ProducerFactory<String, OrderEvent> producerFactory
     ){
-        return new KafkaTemplate<String, OrderEvent>(producerFactory);
+        return new KafkaTemplate<>(producerFactory);
     }
 }
