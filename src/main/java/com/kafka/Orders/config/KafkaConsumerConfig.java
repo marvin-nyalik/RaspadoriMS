@@ -13,12 +13,12 @@ public class KafkaConsumerConfig {
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, OrderEvent>
     kafkaListenerContainerFactory(
-            ConsumerFactory<String, OrderEvent> consumerFactory
-//            DefaultErrorHandler errorHandler
+            ConsumerFactory<String, OrderEvent> consumerFactory,
+            DefaultErrorHandler errorHandler
     ){
      ConcurrentKafkaListenerContainerFactory<String, OrderEvent> factory = new ConcurrentKafkaListenerContainerFactory<>();
      factory.setConsumerFactory(consumerFactory);
-//     factory.setCommonErrorHandler(errorHandler);
+     factory.setCommonErrorHandler(errorHandler);
      factory.getContainerProperties().setAckMode(
              ContainerProperties.AckMode.MANUAL
      );
